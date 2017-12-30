@@ -1,0 +1,20 @@
+{
+  "name": "be-mobile-pt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run server & npm run sass:dev",
+    "server": "live-server ./src --no-browser --ignore=css/sass,css/style.css.map",
+    "sass:dev": "node-sass -w ./src/sass/style.scss -o ./src/css --source-map=true"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.0",
+    "node-sass": "^4.7.2",
+    "prettier": "^1.9.1",
+    "text-to-svg": "^3.1.3"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
