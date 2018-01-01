@@ -211,10 +211,7 @@ body {}
     }
 }
 
-.services--active header .services,
-.insurance--active header .insurance,
-.contact--active header .contact,
-.about--active header .about {
+.global-nav a.active {
     color: $brand;
 }
 
