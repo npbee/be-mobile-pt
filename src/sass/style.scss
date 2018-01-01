@@ -2,12 +2,230 @@
 @import "vars";
 @import "utils";
 
+/**
+ * TACHYONS OVERRIDES
+ */
+.mw8 {
+    max-width: 68rem;
+}
+
 body {}
+
+/**
+ * MODULES
+ */
+.column {
+    flex: 1 0 50%;
+}
+
+.column-30 {
+    flex: 1 0 30%;
+}
+.column-40 {
+    flex: 1 0 30%;
+}
+
+.column-60 {
+    flex: 1 0 60%;
+}
+.column-70 {
+    flex: 1 0 70%;
+}
+
+.section-icon {
+    > svg {
+        fill: $gray-dark;
+        width: 100%;
+        height: 100%;
+        max-width: 400px;
+        min-width: 300px;
+    }
+}
+
+.section-striped {
+    background-color: #F6FBFC;
+}
+
+.marketing-list {
+    li {
+        display: flex;
+        align-items: flex-start;
+
+        > .marketing-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: $brand;
+
+            > svg {
+                fill: #fff;
+                padding: 5px;
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}
+
+.feature-block {
+    p {
+        // font-size: 1rem;
+    }
+    figure {
+        height: 30px;
+
+        svg {
+            fill: lighten($brand, 10%);
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
+// BLOCKQUOTES
+.blockquote-wrapper {
+    position: relative;
+    border-top: 1px solid $gray-pale;
+    border-bottom: 1px solid $gray-pale;
+
+    blockquote {
+        transition: opacity 150ms ease;
+    }
+
+    svg {
+        background: #8DCDB1;
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        padding: 12px;
+        border-radius: 100%;
+        left: 50%;
+        top: -20px;
+        margin-left: -20px;
+        fill: #fff;
+    }
+    q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+}
+
+.dot-menu {
+    position: absolute;
+    width: 100%;
+    top: -5px;
+    display: flex;
+    .dot {
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        flex: 1 0 25%;
+
+        &:hover {
+            .dot-inner {
+                background: lighten($brand, 10%);
+            }
+        }
+
+        &.active {
+            .dot-inner {
+                background: $brand;
+            }
+        }
+    }
+
+    .dot-inner {
+        width: 10px;
+        height: 10px;
+        background: $gray-pale;
+        border-radius: 50%;
+        transition: background 200ms ease-in;
+
+    }
+
+}
+
+
+
+// BUTTON
+.button {
+    display: inline-block;
+    height: 40px;
+    background: darken($brand, 10%);
+    color: #fff;
+    line-height: 40px;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    padding: 0 14px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.025em;
+    transition: all .15s ease;
+    background-image: linear-gradient(-180deg, darken($brand, 10%) 0%, $brand 100%);
+    text-align: center;
+    width: 100%;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+    background: $brand;
+    background-image: linear-gradient(-180deg, $brand 0%, $brand 100%);
+}
+
+.or {
+    display: flex;
+    align-items: center;
+    &:after,
+    &:before {
+        content: "";
+        width: 50px;
+        height: 1px;
+        background: $gray-pale;
+        display: block;
+    }
+    &:before {
+        margin-right: 5px;
+    }
+    &:after {
+        margin-left: 5px;
+    }
+}
+
 
 /**
  * GLOBAL NAV
  */
-.global-nav {}
+.global-nav {
+    border-top: 3px solid $brand;
+    // position: fixed;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.24);
+    z-index: 1;
+
+    a {
+        text-decoration: none;
+        transition: color 150ms;
+        &:hover {
+            color: darken($brand, 10%);
+        }
+    }
+}
+
+.services--active header .services,
+.insurance--active header .insurance,
+.contact--active header .contact,
+.about--active header .about {
+    color: $brand;
+}
+
+// STICKY NAV
+.sticky .global-nav {
+    position: fixed;
+    background: white;
+    width: 100%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.24);
+    z-index: 1;
+}
 
 .logo {
     display: block;
@@ -22,10 +240,11 @@ body {}
     background-image: url(/img/photo.jpg);
     background-color: $brand;
     background-size: cover;
-    filter: grayscale(50%);
+    filter: grayscale(20%);
     background-blend-mode: multiply;
 
     > section h2 {
+        font-weight: 400;
         font-size: 1.5rem;
         @media (min-width: $large) {
             font-size: 2rem;
@@ -34,6 +253,7 @@ body {}
 
     @media (min-width: $large) {
         height: 100vh;
+        min-height: 640px;
     }
 }
 
@@ -53,15 +273,4 @@ body {}
     @media (min-width: $large) {
         height: 100%;
     }
-}
-
-#stripes {
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    transform: skewY(-12deg);
-    transform-origin: 0;
-    background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
 }

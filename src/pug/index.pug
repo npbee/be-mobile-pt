@@ -8,10 +8,16 @@ head
 
 body.avenir.center
     include includes/header.pug
-    main
+    main(id="main")
         include includes/hero.pug
         include includes/services.pug
         include includes/insurance.pug
+        include includes/about.pug
+        include includes/reviews.pug
+        include includes/contact.pug
+
+    script(src="./js/waypoints.min.js")
+    script(src="./js/app.js")
 
 
 
