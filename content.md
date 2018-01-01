@@ -1,2 +1,0 @@
-- Services
-    - bullet points instead of text block
