@@ -4,9 +4,15 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run server & npm run sass:dev & npm run template:dev",
+    "build": "rm -rf dist && npm run template:prod && npm run sass:prod && npm run js:prod && npm run img:prod",
     "server": "live-server ./src --no-browser --ignore=css/sass,css/style.css.map,html",
+    "server:prod": "live-server ./dist --no-browser",
+    "template:prod": "pug ./src/pug/index.pug -o ./dist/",
     "template:dev": "pug -w ./src/pug/index.pug -o ./src/",
-    "sass:dev": "node-sass --watch --recursive --output ./src/css --source-map=true --source-map-contents ./src/sass"
+    "sass:dev": "node-sass --watch --recursive --output ./src/css --source-map=true --source-map-contents ./src/sass",
+    "sass:prod": "node-sass --output ./dist/css ./src/sass --output-style=compressed",
+    "js:prod": "cp -r ./src/js ./dist/js",
+    "img:prod": "cp -r ./src/img ./dist/img"
   },
   "dependencies": {},
   "devDependencies": {
