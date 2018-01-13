@@ -12,3 +12,7 @@
 .multiply {
     mix-blend-mode: multiply;
 }
+
+.grayscale {
+    filter: grayscale(30%);
+}
