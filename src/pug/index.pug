@@ -6,6 +6,14 @@ head
     link(rel="icon" href="/img/favicon.png")
     link(rel="stylesheet", href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css")
     link(rel="stylesheet", href="./css/style.css")
+    script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-112389132-1")
+    script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-112389132-1');
+
 
 body.avenir.center
     include includes/header.pug
